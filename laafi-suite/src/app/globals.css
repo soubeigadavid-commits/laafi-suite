@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --laafi-bronze: #96602f;
+  --laafi-gold: #d9a441;
+}
