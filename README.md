@@ -1,5 +1,6 @@
 # LAAFI CAFÉ — Suite de gestion
 
+
 PWA de gestion intégrée pour LAAFI CAFÉ (café-restaurant + coworking 18 places).
 
 **État de ce livrable** : socle fonctionnel complet et déployable —
