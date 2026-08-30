@@ -9,7 +9,10 @@ export async function GET() {
         where: { checkOutAt: null },
         orderBy: { checkInAt: "desc" },
         take: 1,
-        include: { customer: { select: { firstName: true, lastName: true, phone: true } } },
+        include: {
+          customer: { select: { firstName: true, lastName: true, phone: true } },
+          reservation: { select: { endTime: true } },
+        },
       },
     },
   });
@@ -30,7 +33,7 @@ export async function GET() {
             customerName: `${activeCheckin.customer.firstName} ${activeCheckin.customer.lastName}`,
             phone: activeCheckin.customer.phone,
             checkedInAt: activeCheckin.checkInAt,
-            expectedEndAt: activeCheckin.expectedEndAt,
+            expectedEndAt: activeCheckin.reservation?.endTime ?? activeCheckin.checkInAt,
           }
         : null,
     };
