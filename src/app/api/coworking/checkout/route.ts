@@ -28,8 +28,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Session introuvable ou déjà clôturée" }, { status: 404 });
   }
 
+  const expectedEndAt = checkin.reservation?.endTime ?? checkin.checkInAt;
   const now = new Date();
-  const overrunMs = Math.max(0, now.getTime() - checkin.expectedEndAt.getTime());
+  const overrunMs = Math.max(0, now.getTime() - expectedEndAt.getTime());
   const overtimeMinutes = Math.round(overrunMs / 60000);
   const hourlyRate = checkin.workstation.pricePerHour
     ? Number(checkin.workstation.pricePerHour)
