@@ -78,7 +78,6 @@ export async function POST(req: NextRequest) {
       reservationId: reservation.id,
       customerId,
       checkInAt: now,
-      expectedEndAt: endTime,
     },
   });
 
