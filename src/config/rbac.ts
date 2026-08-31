@@ -4,9 +4,9 @@ export const ROLE_HOME: Record<string, string> = {
   MANAGER: "/admin/dashboard",
   CAISSIER: "/staff/caisse",
   SERVEUR: "/staff/caisse",
-  CUISINIER: "/staff/caisse",
-  MAGASINIER: "/admin/dashboard",
-  AGENT_COWORKING: "/admin/dashboard",
+  CUISINIER: "/kitchen",
+  MAGASINIER: "/admin/stocks",
+  AGENT_COWORKING: "/staff/coworking",
 };
 
 export function homeForRole(role: string): string {

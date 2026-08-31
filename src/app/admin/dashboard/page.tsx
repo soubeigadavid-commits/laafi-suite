@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
 import { formatXOF } from "@/lib/utils";
-import LogoutButton from "./logout-button";
+import AppShell from "@/components/layout/app-shell";
 
 export default async function DashboardPage() {
   const user = await getCurrentUser();
@@ -28,17 +28,7 @@ export default async function DashboardPage() {
   const alerts = lowStockItems.filter((i) => Number(i.currentStock) <= Number(i.minStock));
 
   return (
-    <div className="min-h-screen bg-neutral-50 p-6">
-      <header className="mb-8 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold text-neutral-900">Tableau de bord</h1>
-          <p className="text-sm text-neutral-500">
-            {user ? `Bonjour ${user.firstName} — ${user.role.name}` : ""}
-          </p>
-        </div>
-        <LogoutButton />
-      </header>
-
+    <AppShell title="Tableau de bord" userName={user?.firstName} roleName={user?.role.name}>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card
           label="Postes coworking occupés"
@@ -89,7 +79,7 @@ export default async function DashboardPage() {
           </div>
         )}
       </section>
-    </div>
+    </AppShell>
   );
 }
 
