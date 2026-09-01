@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -14,6 +15,7 @@ const NAV_ITEMS = [
   { href: "/admin/achats", icon: "🛒", label: "Achats" },
   { href: "/admin/facturation", icon: "🧾", label: "Facturation" },
   { href: "/admin/rapports", icon: "📊", label: "Rapports" },
+  { href: "/admin/utilisateurs", icon: "🔐", label: "Utilisateurs" },
 ];
 
 export default function Sidebar() {
@@ -21,9 +23,17 @@ export default function Sidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-20 w-[70px] overflow-y-auto bg-laafi-dark p-3 text-white md:w-[245px] md:p-4">
-      <div className="mb-6 px-1 py-2 text-center text-lg font-extrabold md:px-2 md:text-left md:text-xl">
-        <span className="md:hidden">L</span>
-        <span className="hidden md:inline">
+      <div className="mb-6 flex items-center gap-2 px-1 py-2 md:px-2">
+        <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full bg-white p-0.5">
+          <Image
+            src="/branding/logo-mark.png"
+            alt="LAAFI CAFÉ"
+            width={36}
+            height={36}
+            className="h-full w-full rounded-full object-cover"
+          />
+        </div>
+        <span className="hidden text-lg font-extrabold md:inline">
           LAAFI <span className="text-laafi-gold">Management</span>
         </span>
       </div>

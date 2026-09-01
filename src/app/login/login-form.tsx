@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
@@ -43,8 +44,14 @@ export default function LoginForm() {
   return (
     <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-xl">
       <div className="mb-6 text-center">
-        <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-laafi-bronze text-xl font-bold text-white">
-          LC
+        <div className="mx-auto mb-3 h-16 w-16 overflow-hidden rounded-full bg-white shadow-md ring-1 ring-neutral-200">
+          <Image
+            src="/branding/logo-mark.png"
+            alt="LAAFI CAFÉ"
+            width={64}
+            height={64}
+            className="h-full w-full object-cover"
+          />
         </div>
         <h1 className="text-xl font-semibold text-neutral-900">LAAFI CAFÉ</h1>
         <p className="text-sm text-neutral-500">Le goût des ambitions</p>
