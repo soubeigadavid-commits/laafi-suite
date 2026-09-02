@@ -18,7 +18,7 @@ interface UserRow {
   roleId: string;
   roleName: string;
   isActive: boolean;
-  lastLoginAt: string | null;
+  createdAt: string;
 }
 
 const ROLE_LABELS: Record<string, string> = {
@@ -93,7 +93,7 @@ export default function UsersPanel() {
               <th className="px-4 py-2">Nom</th>
               <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Rôle / Accès</th>
-              <th className="px-4 py-2">Dernière connexion</th>
+              <th className="px-4 py-2">Date d'ajout</th>
               <th className="px-4 py-2">Statut</th>
             </tr>
           </thead>
@@ -118,7 +118,7 @@ export default function UsersPanel() {
                   </select>
                 </td>
                 <td className="px-4 py-2 text-neutral-500">
-                  {u.lastLoginAt ? formatDate(u.lastLoginAt) : "Jamais connecté"}
+                  {formatDate(u.createdAt)}
                 </td>
                 <td className="px-4 py-2">
                   <button
