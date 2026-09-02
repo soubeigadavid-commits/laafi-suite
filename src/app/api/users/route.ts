@@ -19,7 +19,7 @@ export async function GET() {
       roleId: u.roleId,
       roleName: u.role.name,
       isActive: u.isActive,
-      lastLoginAt: u.lastLoginAt,
+      createdAt: u.createdAt,
     })),
   );
 }
